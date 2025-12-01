@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'electrician-site';
-}
+ ngOnInit(): void {
+    const yearEl = document.getElementById('year');
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear().toString();
+    }
+  }}

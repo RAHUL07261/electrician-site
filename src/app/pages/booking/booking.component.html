@@ -1,0 +1,42 @@
+<section class="booking">
+<h2>Book an Electrician</h2>
+
+
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+<div class="field-row">
+<input name="name" ngModel required placeholder="Full name" />
+<input name="phone" ngModel required placeholder="Phone number" />
+</div>
+
+
+<div class="field-row">
+<input name="address" ngModel required placeholder="Address" />
+</div>
+
+
+<div class="field-row">
+<select name="service" ngModel required>
+<option value="">Select service</option>
+<option value="Fan Repair">Fan Repair</option>
+<option value="Wiring">Wiring</option>
+<option value="AC Installation">AC Installation</option>
+<option value="Switchboard Repair">Switchboard Repair</option>
+</select>
+
+
+<input type="date" name="date" ngModel />
+</div>
+
+
+<textarea name="notes" ngModel placeholder="Any notes (optional)"></textarea>
+
+
+<div class="actions">
+<button type="submit" class="btn btn-primary">Send via WhatsApp</button>
+<button type="button" class="btn" (click)="saveLocal(f)">Save Locally</button>
+</div>
+</form>
+
+
+<!-- <p class="hint">When you click <strong>Send via WhatsApp</strong>, WhatsApp will open with a prefilled message. Replace <code>+919015335095</code> in the code with your real number.</p> -->
+</section>

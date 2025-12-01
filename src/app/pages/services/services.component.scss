@@ -1,0 +1,6 @@
+.services-page { padding:20px 0; }
+.services-page h2 { margin-bottom:14px; }
+.service-list { display:grid; gap:12px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); }
+.service-item { background:#fff; padding:16px; border-radius:10px; box-shadow:0 10px 20px rgba(2,6,23,.06); }
+.service-item h3 { margin:0 0 6px; }
+.service-item p { margin:0; color:#475569; }
