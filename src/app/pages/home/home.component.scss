@@ -1,67 +1,74 @@
-/* HERO SECTION */
+/* ====================================
+   HERO SECTION – SAFE & NO-SCROLL
+==================================== */
 .hero {
   position: relative;
+  width: 100% !important;
   height: 80vh;
   background: url('/assets/bg.jpg') center/cover no-repeat;
+  overflow: hidden !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+}
 
-  .overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.6);
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  color: #fff;
+  padding: 0 20px;
+
+  h1 {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
+
+    span {
+      color: #00eaff;
+    }
   }
 
-  .hero-content {
-    position: relative;
-    text-align: center;
-    padding: 0 20px;
-
-    h1 {
-      font-size: 48px;
-      font-weight: 700;
-      line-height: 1.2;
-
-      span {
-        color: #00eaff;
-      }
-    }
-
-    p {
-      margin-top: 12px;
-      font-size: 18px;
-      opacity: 0.9;
-    }
-
-    .hero-buttons {
-      margin-top: 25px;
-      display: flex;
-      gap: 15px;
-      justify-content: center;
-
-      .btn-primary {
-        padding: 12px 22px;
-        background: #00eaff;
-        color: #000;
-        border-radius: 6px;
-        font-weight: 700;
-        text-decoration: none;
-      }
-
-      .btn-secondary {
-        padding: 12px 22px;
-        border: 1px solid #fff;
-        border-radius: 6px;
-        color: #fff;
-        text-decoration: none;
-      }
-    }
+  p {
+    margin-top: 10px;
+    font-size: 18px;
+    opacity: 0.9;
   }
 }
 
-/* FEATURES SECTION */
+.hero-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+
+  a {
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .btn-primary {
+    background: #00eaff;
+    color: #000;
+  }
+
+  .btn-secondary {
+    border: 1px solid #fff;
+    color: #fff;
+  }
+}
+
+/* ====================================
+   FEATURES SECTION
+==================================== */
 .features {
   display: flex;
   justify-content: center;
@@ -85,30 +92,21 @@
   }
 }
 
-/* MOBILE RESPONSIVE */
+/* MOBILE RESPONSIVE FIX */
 @media (max-width: 768px) {
   .hero {
     height: 65vh;
-
-    .hero-content h1 {
-      font-size: 32px;
-    }
-    .hero-content p {
-      font-size: 16px;
-    }
-    .hero-buttons .btn-primary,
-    .hero-buttons .btn-secondary {
-      padding: 10px 16px;
-      font-size: 14px;
-    }
   }
 
-  .features {
-    flex-direction: column;
-    align-items: center;
+  .hero-content h1 {
+    font-size: 32px;
+  }
 
-    .feature-card {
-      width: 90%;
-    }
+  .hero-content p {
+    font-size: 16px;
+  }
+
+  .features .feature-card {
+    width: 90%;
   }
 }

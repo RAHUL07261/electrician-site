@@ -1,4 +1,5 @@
-import { Component,HostListener,OnInit, Renderer2 } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,11 @@ export class AppComponent implements OnInit {
 
   isMenuOpen = false;
 
+  constructor(private titleService: Title) {}
+
   ngOnInit(): void {
+    this.titleService.setTitle("A.K. Electric Services | Mohali’s Trusted Electrician");
+
     const yearEl = document.getElementById('year');
     if (yearEl) {
       yearEl.textContent = new Date().getFullYear().toString();
@@ -30,12 +35,12 @@ export class AppComponent implements OnInit {
     const menu = document.querySelector('.nav');
     const menuBtn = document.querySelector('.menu-btn');
 
-    // Agar click menu ya menu button ke andar hua to menu band mat karo
+    // Click inside menu or menu button → don't close
     if (menu?.contains(event.target as Node) || menuBtn?.contains(event.target as Node)) {
       return;
     }
 
-    // Baaki kisi bhi jagah click hua → menu close
+    // Click anywhere else → close menu
     this.closeMenu();
   }
 }

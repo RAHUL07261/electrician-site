@@ -2,33 +2,38 @@
   <div class="nav-wrapper">
     <div class="navbar">
 
-      <!-- UPDATED BRAND NAME -->
+      <!-- LOGO -->
       <div class="logo">⚡ <span>A.K. Electric Services</span></div>
 
+      <!-- MENU BUTTON (MOBILE) -->
       <div class="menu-btn" (click)="toggleMenu()">☰</div>
 
+      <!-- NAVIGATION MENU -->
       <nav class="nav" [ngClass]="{ 'open': isMenuOpen }">
-        <a routerLink="" (click)="closeMenu()">Home</a>
+        <a routerLink="/" (click)="closeMenu()">Home</a>
         <a routerLink="/about" (click)="closeMenu()">About</a>
-        <a routerLink="services" (click)="closeMenu()">Services</a>
-        <a routerLink="gallery" (click)="closeMenu()">Gallery</a>
-        <a routerLink="faq" (click)="closeMenu()">FAQ</a>
-        <a routerLink="contact" (click)="closeMenu()">Contact</a>
-        <a class="btn-cta" routerLink="booking" (click)="closeMenu()">Book Now</a>
+        <a routerLink="/services" (click)="closeMenu()">Services</a>
+        <a routerLink="/gallery" (click)="closeMenu()">Gallery</a>
+        <a routerLink="/faq" (click)="closeMenu()">FAQ</a>
+        <a routerLink="/contact" (click)="closeMenu()">Contact</a>
+
+        <a class="btn-cta" routerLink="/booking" (click)="closeMenu()">Book Now</a>
       </nav>
 
-      <!-- CLICK OUTSIDE TO CLOSE -->
+      <!-- OVERLAY WHEN MENU IS OPEN -->
       <div class="overlay" *ngIf="isMenuOpen" (click)="closeMenu()"></div>
+
     </div>
   </div>
 </header>
 
+<!-- MAIN CONTENT AREA -->
 <main class="container">
   <router-outlet></router-outlet>
 </main>
 
-<!-- UPDATED FOOTER -->
+<!-- CLEAN MODERN FOOTER -->
 <footer class="mini-footer">
-  <p class="line1">⚡ A.K. Electric Services — Fast & Reliable Electrical Solutions</p>
+  <p class="line1">⚡ A.K. Electric Services — Fast & Reliable Electrician Services</p>
   <p class="line2">© <span id="year"></span> All Rights Reserved.</p>
 </footer>
