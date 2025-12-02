@@ -9,32 +9,40 @@ import { NgForm } from '@angular/forms';
 })
 export class BookingComponent {
 
+  today: string = new Date().toISOString().split('T')[0];
 
-// Replace with your phone number in international format (no + or spaces), e.g. 919876543210
-whatsappNumber = '919015335095';
+  sendWhatsApp(form: any) {
+    if (!form.valid) {
+      alert("Please fill all details.");
+      return;
+    }
 
+    const data = {
+      workDate: form.value.workDate,
+      service: form.value.service,
+      name: form.value.name,
+      phone: form.value.phone,
+      address: form.value.address,
+      problem: form.value.problem || "No extra details"
+    };
 
-onSubmit(form: NgForm) {
-if (!form.valid) {
-alert('Please fill required fields');
-return;
+    // ⭐ 1) Save to Google Sheet
+    fetch("YOUR_GOOGLE_SCRIPT_URL", {
+      method: "POST",
+      body: JSON.stringify(data),
+    });
+
+    // ⭐ 2) WhatsApp Auto-message
+    const message = `New Booking Request:
+Work Date: ${data.workDate}
+Service: ${data.service}
+Name: ${data.name}
+Phone: ${data.phone}
+Address: ${data.address}
+Problem: ${data.problem}`;
+
+    const url = `https://wa.me/9015335095?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  }
 }
-
-
-const data = form.value;
-const message = `New booking request:%0AName: ${encodeURIComponent(data.name)}%0APhone: ${encodeURIComponent(data.phone)}%0AService: ${encodeURIComponent(data.service)}%0ADate: ${encodeURIComponent(data.date || '-') }%0AAddress: ${encodeURIComponent(data.address)}%0ANotes: ${encodeURIComponent(data.notes || '-')}`;
-
-
-const url = `https://wa.me/${this.whatsappNumber}?text=${message}`;
-window.open(url, '_blank');
-}
-
-
-// optional helper: save form locally to browser storage
-saveLocal(form: NgForm) {
-localStorage.setItem('lastBooking', JSON.stringify(form.value));
-alert('Saved locally');
-}
-}
-
 

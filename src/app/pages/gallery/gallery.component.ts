@@ -7,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrl: './gallery.component.scss'
 })
 export class GalleryComponent {
+popupImage: string | null = null;
 
+openPopup(img: string) {
+  this.popupImage = img;
+}
+
+closePopup() {
+  this.popupImage = null;
+}
 }

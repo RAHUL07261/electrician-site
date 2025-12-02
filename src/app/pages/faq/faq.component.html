@@ -1,14 +1,50 @@
-<section class="faq-section">
-  <h2 class="title">Frequently Asked Questions</h2>
+<section class="faq-section container">
 
-  <div class="faq-box" *ngFor="let item of faqList; let i = index" (click)="toggle(i)">
-    <div class="faq-question">
-      <span>{{ item.q }}</span>
-      <span class="arrow" [class.open]="item.open">&#9662;</span>
+  <h2 class="faq-title">Frequently Asked Questions</h2>
+  <p class="faq-subtitle">Most common questions we get from our customers</p>
+
+  <div class="faq-list">
+
+    <div class="faq-item" (click)="toggleFAQ(1)">
+      <div class="faq-question">
+        <span>⚡ What services do you provide?</span>
+        <span [class.rotate]="openIndex === 1">⌄</span>
+      </div>
+      <div class="faq-answer" *ngIf="openIndex === 1">
+        We provide wiring, fan installation, switchboard repair, MCB installation, lighting work, home appliance wiring and more.
+      </div>
     </div>
 
-    <div class="faq-answer" [class.show]="item.open">
-      <p>{{ item.a }}</p>
+    <div class="faq-item" (click)="toggleFAQ(2)">
+      <div class="faq-question">
+        <span>🕒 What are your working hours?</span>
+        <span [class.rotate]="openIndex === 2">⌄</span>
+      </div>
+      <div class="faq-answer" *ngIf="openIndex === 2">
+        We are available every day from 8:00 AM to 8:00 PM.
+      </div>
     </div>
+
+    <div class="faq-item" (click)="toggleFAQ(3)">
+      <div class="faq-question">
+        <span>🏠 Do you provide home visit service?</span>
+        <span [class.rotate]="openIndex === 3">⌄</span>
+      </div>
+      <div class="faq-answer" *ngIf="openIndex === 3">
+        Yes, we provide fast and reliable home visit electrician services across your area.
+      </div>
+    </div>
+
+    <div class="faq-item" (click)="toggleFAQ(4)">
+      <div class="faq-question">
+        <span>💳 What payment methods do you accept?</span>
+        <span [class.rotate]="openIndex === 4">⌄</span>
+      </div>
+      <div class="faq-answer" *ngIf="openIndex === 4">
+        We accept Cash, UPI, Google Pay, PhonePe and Paytm.
+      </div>
+    </div>
+
   </div>
+
 </section>

@@ -1,42 +1,83 @@
-<section class="booking">
-<h2>Book an Electrician</h2>
+<section class="booking-section">
+  <h2 class="title">Book Electrician Service</h2>
 
+  <form #f="ngForm" (ngSubmit)="sendWhatsApp(f)">
 
-<form #f="ngForm" (ngSubmit)="onSubmit(f)">
-<div class="field-row">
-<input name="name" ngModel required placeholder="Full name" />
-<input name="phone" ngModel required placeholder="Phone number" />
-</div>
+    <!-- Work Date -->
+    <div class="form-group">
+      <label>Select Work Date</label>
+      <input type="date" name="workDate" ngModel required [min]="today">
+    </div>
 
+    <!-- Select Service -->
+    <div class="form-group">
+      <label>Select Service</label>
+      <select name="service" ngModel required>
+        <option value="">Choose Service</option>
+        <option value="Wiring & Rewiring">Wiring & Rewiring</option>
+        <option value="Fan Repair / Installation">Fan Repair / Installation</option>
+        <option value="LED Light Installation">LED Light Installation</option>
+        <option value="Switchboard Repair">Switchboard Repair</option>
+        <option value="AC Wiring / Connection">AC Wiring / Connection</option>
+        <option value="Full Home Electrical Checkup">Full Home Electrical Checkup</option>
+      </select>
+    </div>
 
-<div class="field-row">
-<input name="address" ngModel required placeholder="Address" />
-</div>
+    <!-- Name -->
+    <div class="form-group">
+      <label>Your Name</label>
+      <input type="text" name="name" ngModel required placeholder="Enter your name">
+    </div>
 
+    <!-- Phone -->
+    <div class="form-group">
+      <label>Phone Number</label>
+      <input type="tel" name="phone" ngModel required placeholder="Enter phone number">
+    </div>
 
-<div class="field-row">
-<select name="service" ngModel required>
-<option value="">Select service</option>
-<option value="Fan Repair">Fan Repair</option>
-<option value="Wiring">Wiring</option>
-<option value="AC Installation">AC Installation</option>
-<option value="Switchboard Repair">Switchboard Repair</option>
-</select>
+    <!-- Address -->
+    <div class="form-group">
+      <label>Address</label>
+      <textarea name="address" ngModel required placeholder="Your complete address"></textarea>
+    </div>
 
+    <!-- Problem -->
+    <div class="form-group">
+      <label>Problem Description</label>
+      <textarea name="problem" ngModel placeholder="Describe the problem (optional)"></textarea>
+    </div>
 
-<input type="date" name="date" ngModel />
-</div>
+    <button type="submit" class="btn-submit">Send on WhatsApp</button>
+  </form>
 
+  <!-- Price Table -->
+  <h3 class="table-title">Service Price List</h3>
 
-<textarea name="notes" ngModel placeholder="Any notes (optional)"></textarea>
+  <table class="price-table">
+    <tr>
+      <th>Service</th>
+      <th>Starting Price</th>
+    </tr>
+    <tr>
+      <td>Wiring & Rewiring</td>
+      <td>₹199</td>
+    </tr>
+    <tr>
+      <td>Fan Repair</td>
+      <td>₹149</td>
+    </tr>
+    <tr>
+      <td>LED Installation</td>
+      <td>₹99</td>
+    </tr>
+    <tr>
+      <td>Switchboard Repair</td>
+      <td>₹149</td>
+    </tr>
+    <tr>
+      <td>AC Wiring</td>
+      <td>₹299</td>
+    </tr>
+  </table>
 
-
-<div class="actions">
-<button type="submit" class="btn btn-primary">Send via WhatsApp</button>
-<button type="button" class="btn" (click)="saveLocal(f)">Save Locally</button>
-</div>
-</form>
-
-
-<!-- <p class="hint">When you click <strong>Send via WhatsApp</strong>, WhatsApp will open with a prefilled message. Replace <code>+919015335095</code> in the code with your real number.</p> -->
 </section>

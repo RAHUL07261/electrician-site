@@ -1,27 +1,34 @@
 <header class="header">
-<div class="container nav-wrapper">
-<div class="navbar">
-  <div class="logo">
-    ⚡ <span>Dr. Electric</span>
-       <span>Akshay Sharma</span>
-  </div>
+  <div class="nav-wrapper">
+    <div class="navbar">
 
-  <nav class="nav">
-    <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
-    <a routerLink="services" routerLinkActive="active">Services</a>
-    <a routerLink="gallery" routerLinkActive="active">Gallery</a>
-    <a routerLink="faq" routerLinkActive="active">FAQ</a>
-    <a routerLink="contact" routerLinkActive="active">Contact</a>
-    <a class="btn-cta" routerLink="booking">Book Now</a>
-  </nav>
-</div>
-</div>
+      <!-- UPDATED BRAND NAME -->
+      <div class="logo">⚡ <span>A.K. Electric Services</span></div>
+
+      <div class="menu-btn" (click)="toggleMenu()">☰</div>
+
+      <nav class="nav" [ngClass]="{ 'open': isMenuOpen }">
+        <a routerLink="" (click)="closeMenu()">Home</a>
+        <a routerLink="/about" (click)="closeMenu()">About</a>
+        <a routerLink="services" (click)="closeMenu()">Services</a>
+        <a routerLink="gallery" (click)="closeMenu()">Gallery</a>
+        <a routerLink="faq" (click)="closeMenu()">FAQ</a>
+        <a routerLink="contact" (click)="closeMenu()">Contact</a>
+        <a class="btn-cta" routerLink="booking" (click)="closeMenu()">Book Now</a>
+      </nav>
+
+      <!-- CLICK OUTSIDE TO CLOSE -->
+      <div class="overlay" *ngIf="isMenuOpen" (click)="closeMenu()"></div>
+    </div>
+  </div>
 </header>
 
-
 <main class="container">
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </main>
 
-
-<footer class="footer">© <span id="year"></span> Dr. Electric — Fast, Affordable & Trusted</footer>
+<!-- UPDATED FOOTER -->
+<footer class="mini-footer">
+  <p class="line1">⚡ A.K. Electric Services — Fast & Reliable Electrical Solutions</p>
+  <p class="line2">© <span id="year"></span> All Rights Reserved.</p>
+</footer>

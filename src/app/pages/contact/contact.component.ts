@@ -9,18 +9,22 @@ import { NgForm } from '@angular/forms';
 })
 export class ContactComponent {
 
-  whatsapp = '91PHONE_NUMBER'; // replace with your number
+  openWhatsApp() {
+    window.open("https://wa.me/9015335095", "_blank");
+  }
 
-  send(form: NgForm) {
+  submitForm(form: any) {
     if (!form.valid) {
-      alert('Please fill required fields');
+      alert("Please fill all fields.");
       return;
     }
 
-    const v = form.value;
+    const message = `New Contact Message:
+Name: ${form.value.name}
+Phone: ${form.value.phone}
+Message: ${form.value.message}`;
 
-    const msg = `New contact request:%0AName: ${v.name}%0APhone: ${v.phone}%0AEmail: ${v.email || '-'}%0AMessage: ${v.message || '-'}`;
-
-    window.open(`https://wa.me/${this.whatsapp}?text=${msg}`, '_blank');
+    const url = `https://wa.me/9015335095?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
   }
 }

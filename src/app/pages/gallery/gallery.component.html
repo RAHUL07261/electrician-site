@@ -1,1 +1,16 @@
-<p>gallery works!</p>
+<section class="gallery-section">
+  <h2 class="gallery-title">Our Work Gallery</h2>
+  <p class="gallery-subtitle">Professional Electrical Work Completed by Us</p>
+
+  <div class="gallery-grid">
+    <img src="assets/gallery/img1.jpg" (click)="openPopup('assets/gallery/img1.jpg')" />
+    <img src="assets/gallery/img2.jpg" (click)="openPopup('assets/gallery/img2.jpg')" />
+    <img src="assets/gallery/img3.jpg" (click)="openPopup('assets/gallery/img3.jpg')" />
+    <img src="assets/gallery/img4.jpg" (click)="openPopup('assets/gallery/img4.jpg')" />
+  </div>
+</section>
+
+<!-- POPUP -->
+<div class="popup" *ngIf="popupImage" (click)="closePopup()">
+  <img [src]="popupImage" class="popup-img" />
+</div>
